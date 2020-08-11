@@ -1,0 +1,38 @@
+
+<mat-card class="example-card">
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion *ngIf="posts.length > 0 && !isLoading"> 
+  <mat-expansion-panel *ngFor="let post of posts">
+    
+    <mat-expansion-panel-header>
+      {{post.title}}
+    </mat-expansion-panel-header>
+    
+      <p>{{post.content}}</p>
+      <mat-action-row>
+        
+        <a mat-fab color="accent" [routerLink]="['/edit', post.id]" >
+          <mat-icon>❤</mat-icon></a>
+          <div class="example-button-container">
+            <button mat-fab color="disabled" aria-label="Example icon button with a home icon" [routerLink]="['/edit', post.id]">
+              <mat-icon>..</mat-icon>
+            </button>
+          </div>
+
+          <div class="example-button-container">
+            <button mat-fab color="disabled" aria-label="Example icon button with a delete icon " (click)="onDelete(post.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+      </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+
+<p *ngIf="posts.length<=0 && !isLoading">Please add some posts</p>
+
+
+
+
+
+

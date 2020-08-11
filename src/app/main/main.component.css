@@ -1,0 +1,23 @@
+ul{
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+  color:white;
+  text-align: center;
+}
+
+mat-toolbar{
+  text-align: center;
+}
+
+
+
+.spacer{
+  flex: 1 1 auto;
+}
+button{
+  text-align: center;
+}
