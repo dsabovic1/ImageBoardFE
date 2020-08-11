@@ -13,27 +13,33 @@
      
    <div class="example-button-container">
     
-    <P>ADD IMAGE</P> <button mat-mini-fab color="accent" routerLinkActive="mat-accent" aria-label="Example icon button with a plus one icon" (click)="filePicker.click()" >
+    <center><P>ADD IMAGE</P> <button mat-mini-fab color="accent" routerLinkActive="mat-accent" 
+    aria-label="Example icon button with a plus one icon"
+    (click)="filePicker.click()" >
        <mat-icon> plus_one</mat-icon>
        
        <input type="file" #filePicker (change)="onImagePicked($event)">
      </button>
+    </center>
   </div>
 
     </div>
-    <div class="image-preview" *ngIf="imagePreview!=='' && imagePreview && form.get('image').valid ">
+    <center><div class="image-preview" *ngIf="imagePreview!=='' && imagePreview && form.get('image').valid ">
       <img [src]="imagePreview" [alt]="form.value.title">
     </div>
+  </center>
+    <br>
    <mat-form-field>
      <textarea matInput rows="4"
      formControlName="content"
-     placeholder="Post Content"
-     ></textarea>
+     placeholder="Post Content"></textarea>
      <mat-error *ngIf="form.get('content').invalid">Please add a post content</mat-error>
    </mat-form-field>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <div>
    <button mat-raised-button
    color="accent"
    type="submit">Publish</button>
+  </div>
   </form>
 </mat-card>
-

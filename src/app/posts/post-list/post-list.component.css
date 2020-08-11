@@ -21,3 +21,8 @@ mat-spinner{
   background-size: cover;
 }
 
+
+.mat-card{
+  width: 100%;
+  text-align:center;
+}
