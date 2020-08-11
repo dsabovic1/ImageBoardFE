@@ -1,0 +1,10 @@
+$pink: #ff47a3;
+$orange: #ff7b5b;
+$light-pink: #ffb6db;
+$dark-pink: rgb(250, 3, 127);
+
+$light: #f8f8f8;
+
+html {
+  background: linear-gradient(to right top, $pink, $orange);
+}

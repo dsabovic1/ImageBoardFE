@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -12,16 +13,22 @@ import { CreateComponent } from './posts/create/create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
-import { HttpClientModule } from '@angular/common/http';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
+
+import { WebReqInterceptor } from './web-req.interceptor';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
     MainComponent,
-    PostListComponent
-
+    PostListComponent,
+    LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,9 +42,11 @@ import { MatIconModule } from '@angular/material/icon';
     MatExpansionModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: WebReqInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
