@@ -1,8 +1,9 @@
 ul{
   list-style:none;
-  margin: 0;
+  margin: 16px;
   padding: 0;
 }
+
 a{
   text-decoration: none;
   color:white;
@@ -13,11 +14,15 @@ mat-toolbar{
   text-align: center;
 }
 
-
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  padding: 0 50px;
+}
 
 .spacer{
   flex: 1 1 auto;
 }
+
 button{
   text-align: center;
 }
