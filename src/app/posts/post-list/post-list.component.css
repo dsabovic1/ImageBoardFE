@@ -1,7 +1,6 @@
 :host{
   display: block;
   margin-top: 2rem;
- 
   width: 50%;
   text-align: center;
 
@@ -14,6 +13,10 @@ mat-spinner{
 .example-card {
   max-width: 400px;
   display: block;
+  align-self: center;
+  margin-left:  70%;
+  margin-right: auto;
+  position: center;
 }
 
 .example-header-image {
@@ -21,3 +24,33 @@ mat-spinner{
   background-size: cover;
 }
 
+.mat-card{
+  width: 100%;
+  text-align:center;
+}
+
+button {
+  margin: 5px;
+}
+
+.grid {
+  display:block;
+  grid-template-columns: auto auto auto;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: auto;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+ 
+example-card{
+  max-width: 400px;
+  position: center;
+  text-align: center;
+  align-self: center;
+}
+
+.natpis{
+  text-align: center;
+}
