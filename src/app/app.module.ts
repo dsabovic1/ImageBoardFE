@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,6 +45,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatProgressSpinnerModule,
     HttpClientModule,
     MatIconModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

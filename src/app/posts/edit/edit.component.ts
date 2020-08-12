@@ -3,7 +3,7 @@ import { Post } from '../post.model';
 import { NgForOf } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostsService } from '../post.service';
-import { ActivatedRoute, ParamMap } from '@angular/router'; 
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 
@@ -38,8 +38,11 @@ export class EditComponent implements OnInit {
           this.isLoading=false;
           this.post={
             id: postData._id,
+            userId: postData.userId,
             title: postData.title,
             content: postData.content,
+            likesCount : postData.likesCount,
+            liked : postData.liked,
             imagePath: null
             };
           this.form.setValue({
@@ -58,7 +61,7 @@ export class EditComponent implements OnInit {
  onSavePost(){
    if(this.form.invalid)
    {return;}
-   
+
 
     this.isLoading=true;
     if(this.mode==='create'){

@@ -3,7 +3,7 @@ import { Post } from '../post.model';
 import { NgForOf } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostsService } from '../post.service';
-import { ActivatedRoute, ParamMap } from '@angular/router'; 
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { mimeType } from './mime-type.validator';
 
@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit {
            Validators.minLength(3)]}),
       content: new FormControl(null,
         {validators: [Validators.required]}),
-      image: new FormControl(null, 
+      image: new FormControl(null,
         {validators: [Validators.required] ,
            asyncValidators: [mimeType]})
 
@@ -44,8 +44,11 @@ export class CreateComponent implements OnInit {
           this.isLoading=false;
           this.post={
             id: postData._id,
+            userId: postData.userId,
             title: postData.title,
             content: postData.content,
+            likesCount : postData.likesCount,
+            liked : postData.liked,
             imagePath: null
             };
           this.form.setValue({'title': this.post.title,
@@ -64,7 +67,7 @@ export class CreateComponent implements OnInit {
  onSavePost(){
    if(this.form.invalid)
    {return;}
-   
+
 
     this.isLoading=true;
     if(this.mode==='create'){
@@ -93,6 +96,6 @@ export class CreateComponent implements OnInit {
    console.log(file);
    reader.readAsDataURL(file);
   }
-  
+
 
 }

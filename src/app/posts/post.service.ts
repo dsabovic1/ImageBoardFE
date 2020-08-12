@@ -13,12 +13,15 @@ export class PostsService{
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute){}
   getPosts (){
     this.http.get<{message:string, posts: any}>('http://localhost:3000/api/posts')
-    .pipe(map((postData)=>{ 
+    .pipe(map((postData)=>{
       return postData.posts.map(post=> {
         return {
           title: post.title,
+          userId: post.userId,
           content: post.content,
           id: post._id,
+          likesCount: post.likesCount,
+          liked: post.liked,
           imagePath: post.imagePath
         };
       });
@@ -26,7 +29,7 @@ export class PostsService{
     .subscribe((transformedPosts)=>{
       this.posts=transformedPosts;
       this.postsUpdated.next([...this.posts]);
-    }); 
+    });
   }
 
   getPostUpdateListener(){
@@ -34,7 +37,7 @@ export class PostsService{
   }
 
   updatePost(id: string, title:string, content: string){
-    const post: Post={
+    const post={
       id: id,
       title: title,
       content: content,
@@ -45,7 +48,8 @@ export class PostsService{
     .subscribe(response => {
       const updatedPosts=[...this.posts];
       const oldPostIndex = updatedPosts.findIndex(p=>p.id ===post.id);
-      updatedPosts[oldPostIndex]=post;
+      updatedPosts[oldPostIndex].title=post.title;
+      updatedPosts[oldPostIndex].content=post.content;
       this.posts = updatedPosts;
       this.postsUpdated.next([...this.posts]);
       this.router.navigate(["/"],{relativeTo: this.route});
@@ -65,8 +69,11 @@ export class PostsService{
     .subscribe((responseData)=>{
       const post: Post = {
         id: responseData.post.id,
+        userId : "3",
         title: title,
         content: content,
+        likesCount : 0,
+        liked : [],
         imagePath: responseData.post.imagePath};
       this.posts.push(post);
       this.postsUpdated.next([...this.posts]);
@@ -75,16 +82,28 @@ export class PostsService{
 
   }
   getPost(id: string){
-    return this.http.get<{_id: string, title: string, content: string}>("http://localhost:3000/api/posts/" + id);
+    return this.http.get<{_id: string, userId: string, title: string, content: string, likesCount: Number, liked : []}>("http://localhost:3000/api/posts/" + id);
   }
 
-  deletePost(postId: string){
+  deletePost(postId: string) {
     this.http.delete("http://localhost:3000/api/posts/" + postId)
     .subscribe(()=>{
-      const updatedPosts = this.posts.filter(post => post.id!==postId); 
+      const updatedPosts = this.posts.filter(post => post.id!==postId);
       this.posts = updatedPosts;
       this.postsUpdated.next([...this.posts]);
     });
+  }
+
+    onLike(postId, userId, funkcija, ovo) {
+    const postData = {
+      postId: postId,
+      userId: userId
+    };
+    this.http.post(
+      'http://localhost:3000/api/posts/like', postData).subscribe((responseData : any) =>{
+      funkcija(responseData, ovo);
+    });
+
   }
 
 }
