@@ -1,27 +1,40 @@
 :host{
   display: block;
   margin-top: 2rem;
-  width: 50%;
   text-align: center;
-
 }
 
 mat-spinner{
   margin: auto;
 }
 
+mat-card{ 
+  margin-bottom: 15px;
+}
+
 .example-card {
   max-width: 400px;
   display: block;
   align-self: center;
-  margin-left:  70%;
-  margin-right: auto;
   position: center;
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+mat-card-header {
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+mat-card-title {
+  margin: 0 auto;
+}
+
+.mat-card-header .mat-card-title {
+  margin-bottom: 0;
 }
 
 .mat-card{
@@ -34,23 +47,18 @@ button {
 }
 
 .grid {
-  display:block;
-  grid-template-columns: auto auto auto;
   display: grid;
   justify-items: center;
   grid-template-columns: auto;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
 }
  
 example-card{
   max-width: 400px;
-  position: center;
   text-align: center;
-  align-self: center;
+  margin: auto;
 }
 
-.natpis{
+.info{
   text-align: center;
 }

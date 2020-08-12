@@ -1,19 +1,15 @@
-
-
 mat-form-field,
 textarea{
-  width: 70%;
+  width: 100%;
 }
 
 mat-spinner{
   margin:auto;
-
 }
 
 input[type="file"]{
   visibility: hidden;
 }
-
 
 .image-preview{
   height: 10rem;
@@ -27,14 +23,11 @@ input[type="file"]{
 mat-card{
   width: 30%;
   display: block;
+  text-align:center;
+  margin: auto;
 }
 
 main-div{
   justify-content: center;
   align-items: center;
-}
-
-.mat-card{
-  width: 100%;
-  text-align:center;
 }
