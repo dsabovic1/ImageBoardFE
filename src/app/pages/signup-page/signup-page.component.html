@@ -1,0 +1,38 @@
+<mat-card class="centered-content">
+  <mat-card-content>
+    <h2>Sign up</h2>
+    <mat-form-field class="full-width-input">
+      <input
+        #email
+        matInput
+        placeholder="Email"
+        formControlName="email"
+        required
+      />
+      <mat-error>Please provide a valid email address </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        #password
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        required
+      />
+      <mat-error> Please provide a valid password</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSignupButtonClicked(email.value, password.value)"
+    >
+      Signup
+    </button>
+    <br /><br />
+    <p>
+      Already got an account?
+      <a mat-button routerLink="/login">Login</a> now!
+    </p>
+  </mat-card-content>
+</mat-card>
