@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+
+      
+    
+      <div class="image-preview" *ngIf="imagePreview!=='' && imagePreview && form.get('image').valid ">
+        <img [src]="imagePreview" [alt]="form.value.title">
+      </div>
+      
+      <br>
+      <mat-form-field>
+        <textarea 
+         matInput rows="4"
+         formControlName="content"
+         placeholder="Post Content">
+        </textarea>
+        <mat-error *ngIf="form.get('content').invalid">Please add a post content</mat-error>
+      </mat-form-field>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div>
+        <button mat-raised-button color="accent" type="submit">Publish</button>
+      </div>
+      </form>
+    </mat-card>
+    
