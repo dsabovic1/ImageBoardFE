@@ -4,6 +4,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { CreateComponent } from './posts/create/create.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,10 @@ const routes: Routes = [
     path: 'create',
     component: CreateComponent,
   },
-
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
   {
     path: 'edit/:postId',
     component: CreateComponent,

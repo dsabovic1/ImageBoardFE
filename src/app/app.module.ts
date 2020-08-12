@@ -13,10 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,8 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
     MainComponent,
     PostListComponent,
     LoginPageComponent,
-    SignupPageComponent
-
+    SignupPageComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +40,9 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
     MatExpansionModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
