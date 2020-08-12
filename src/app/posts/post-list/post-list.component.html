@@ -3,7 +3,10 @@
     <div class="grid">
       <mat-card class="example-card" *ngFor="let post of posts">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
+          <div mat-card-avatar class="example-header-image" >
+            	
+          </div>
+          
           <mat-card-title>{{ post.title }}</mat-card-title>
         </mat-card-header>
         
@@ -17,13 +20,15 @@
         </mat-card-content>
         <mat-card-actions>
           <div class="example-button-container">
-            <button mat-fab color="accent"><mat-icon>❤</mat-icon></button>
+            <button mat-fab color="accent">
+              <mat-icon>❤</mat-icon>
+            </button>
             <button
               mat-fab
               color="disabled"
               aria-label="Example icon button with a home icon"
               [routerLink]="['/edit', post.id]">
-              <mat-icon>..</mat-icon>
+              <mat-icon>settings</mat-icon>
             </button>
             <button
               mat-fab
