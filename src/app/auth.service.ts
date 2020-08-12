@@ -15,8 +15,6 @@ export class AuthService {
   ) {}
 
   login(email: string, password: string) {
-    // const payload = { email: 'eminaaa@test.com', password: 'helloworld' };
-    // const res = this.http.post('http://localhost:3000/api/users', payload);
     return this.webService.login(email, password).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {
@@ -32,8 +30,6 @@ export class AuthService {
   }
 
   signup(email: string, password: string) {
-    //const payload = { email: email, password: password };
-    //const res = this.http.post('http://localhost:3000/api/users', payload);
     return this.webService.signup(email, password).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {
@@ -102,5 +98,9 @@ export class AuthService {
           this.setAccessToken(res.headers.get('x-access-token'));
         })
       );
+  }
+
+  isLoggedIn() {
+    return this.getUserId() != null;
   }
 }
