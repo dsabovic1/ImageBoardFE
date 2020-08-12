@@ -1,4 +1,7 @@
 mat-card {
+  font: 500 16px/28px Roboto,
+  "Helvetica Neue",
+  sans-serif;
   max-width: 400px;
   height: 400px;
   margin: 2em auto;
@@ -13,4 +16,8 @@ mat-form-field {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+a {
+  font-weight: 900;
 }

@@ -1,6 +1,7 @@
 <mat-card class="centered-content">
   <mat-card-content>
     <h2>Log In</h2>
+    <br>
     <mat-form-field class="full-width-input">
       <input
         #email
@@ -24,15 +25,13 @@
     </mat-form-field>
     <button
       mat-raised-button
-      color="primary"
+      color="accent"
       (click)="onLoginButtonClicked(email.value, password.value)"
     >
       Login
     </button>
-    <br /><br />
-    <p>
-      Don't have an account?
-      <a mat-button routerLink="/signup">Signup</a> now!
-    </p>
+    <br>
+    <br>
+    <p>Don't have an account? <a color="primary" routerLink="/signup">Signup</a> now!</p>
   </mat-card-content>
 </mat-card>
