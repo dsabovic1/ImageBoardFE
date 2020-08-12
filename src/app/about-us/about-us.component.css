@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+}
+
+.example-card {
+  max-width: 300px;
+  margin: 0 10px;
+}
+mat-card {
+  padding: 16px 16px 0 16px;
+}
+
+mat-card-title {
+  width: max-content;
+}
+
+img {
+  max-width: 400px;
+  min-width: 200px;
+  height: 350px;
+}
+
+.example-header-image-eldar{
+  background-image: url('/assets/images/Eldar_Čelik.jpg');
+  background-size: cover;
+}
+
+.example-header-image-anida {
+  background-image: url('/assets/images/Anida_Mujezin.jpg');
+  background-size: cover;
+}
+
+.example-header-image-dzenana {
+  background-image: url('/assets/images/Dženana_Šabović.jpg');
+  background-size: cover;
+}
+
+.example-header-image-arslan {
+  background-image: url('/assets/images/Arslan_Turkušić.jpg');
+  background-size: cover;
+}
+
+.example-header-image-emina {
+  background-image: url('/assets/images/Emina_Kezo.jpg');
+  background-size: cover;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  width: 70%;
+}
+
+.created {
+  width: 50%;
+  margin: auto;
+  font: 500 16px/28px Roboto,
+    "Helvetica Neue",
+    sans-serif;
+  text-align: center;
+  letter-spacing: normal;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background-color: #ec1b2e;
+  border-radius: 25px;
+}

@@ -15,12 +15,14 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
+import { AboutUsComponent } from './about-us/about-us.component';
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
     MainComponent,
-    PostListComponent
+    PostListComponent,
+    AboutUsComponent
 
   ],
   imports: [
