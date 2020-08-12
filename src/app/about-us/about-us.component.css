@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  padding-top: 60px;
 }
 
 .example-card {
@@ -54,13 +55,17 @@ hr {
 }
 
 .created {
-  width: 50%;
+  width: 60%;
   margin: auto;
-  font: 500 16px/28px Roboto,
+
+  font: 500 20px/30px Roboto,
     "Helvetica Neue",
     sans-serif;
   text-align: center;
   letter-spacing: normal;
+  padding-top: 50px;
+  
+  
 }
 
 a {
