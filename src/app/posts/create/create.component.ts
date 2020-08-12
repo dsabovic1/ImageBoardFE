@@ -21,10 +21,12 @@ export class CreateComponent implements OnInit {
   isLoading = false;
   form: FormGroup;
   post: Post;
+
   ngOnInit(): void {
     this.form= new FormGroup({
       title: new FormControl(null,
-        {validators: [Validators.required, Validators.minLength(3)]}),
+        {validators: [Validators.required,
+           Validators.minLength(3)]}),
       content: new FormControl(null,
         {validators: [Validators.required]}),
       image: new FormControl(null, 
@@ -40,8 +42,14 @@ export class CreateComponent implements OnInit {
         this.isLoading=true;
         this.postsService.getPost(this.postId).subscribe(postData=>{
           this.isLoading=false;
-          this.post={id:postData._id, title: postData.title, content: postData.content};
-          this.form.setValue({'title': this.post.title, 'content': this.post.content});
+          this.post={
+            id: postData._id,
+            title: postData.title,
+            content: postData.content,
+            imagePath: null
+            };
+          this.form.setValue({'title': this.post.title,
+           'content': this.post.content});
         });
       }
       else{
@@ -60,11 +68,15 @@ export class CreateComponent implements OnInit {
 
     this.isLoading=true;
     if(this.mode==='create'){
-      this.postsService.addPost(this.form.value.title, this.form.value.content, this.form.value.image)
+      this.postsService.addPost(this.form.value.title,
+        this.form.value.content,
+         this.form.value.image)
 
     }
     else{
-      this.postsService.updatePost(this.postId, this.form.value.title, this.form.value.content);
+      this.postsService.updatePost(this.postId,
+         this.form.value.title,
+          this.form.value.content);
     }
     this.form.reset();
 
@@ -78,7 +90,9 @@ export class CreateComponent implements OnInit {
    reader.onload= () => {
       this.imagePreview = reader.result.toString();
    };
+   console.log(file);
    reader.readAsDataURL(file);
   }
+  
 
 }

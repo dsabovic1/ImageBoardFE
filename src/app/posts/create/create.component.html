@@ -30,9 +30,11 @@
   </center>
     <br>
    <mat-form-field>
-     <textarea matInput rows="4"
+     <textarea 
+     matInput rows="4"
      formControlName="content"
-     placeholder="Post Content"></textarea>
+     placeholder="Post Content">
+    </textarea>
      <mat-error *ngIf="form.get('content').invalid">Please add a post content</mat-error>
    </mat-form-field>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
