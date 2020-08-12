@@ -10,7 +10,7 @@ import { mimeType } from './mime-type.validator';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss'],
+  styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
   constructor(
@@ -23,6 +23,7 @@ export class CreateComponent implements OnInit {
   isLoading = false;
   form: FormGroup;
   post: Post;
+
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(null, {
@@ -45,6 +46,7 @@ export class CreateComponent implements OnInit {
             id: postData._id,
             title: postData.title,
             content: postData.content,
+            imagePath: null,
           };
           this.form.setValue({
             title: this.post.title,
@@ -90,6 +92,7 @@ export class CreateComponent implements OnInit {
     reader.onload = () => {
       this.imagePreview = reader.result.toString();
     };
+    console.log(file);
     reader.readAsDataURL(file);
   }
 }
