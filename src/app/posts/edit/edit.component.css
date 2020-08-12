@@ -1,0 +1,21 @@
+mat-form-field,
+textarea{
+  width: 100%;
+}
+
+mat-spinner{
+  margin:auto;
+}
+
+
+mat-card{
+  width: 30%;
+  display: block;
+  text-align:center;
+  margin: auto;
+}
+
+main-div{
+  justify-content: center;
+  align-items: center;
+}

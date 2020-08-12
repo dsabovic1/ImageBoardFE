@@ -53,13 +53,5 @@ export class PostListComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.postsSub.unsubscribe();
   }
-//   posts= [
-//     { title: 'First Post', content:'This is the first post' },
-//     { title: 'Second Post', content:'This is the second post' },
-//     { title: 'Third Post', content:'This is the thirs post' },
-
-// ];
-//kad imamo input
-//@Input() posts: Post[]=[]; //da mozemo primati podatke izvan, to jeste iz app.html odakle se poziva komponenta
 
 }

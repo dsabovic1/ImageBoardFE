@@ -20,13 +20,15 @@ mat-card{
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-image: url('/assets/person.png');
   background-size: cover;
 }
 
 mat-card-header {
   align-items: center;
+  text-align: center;
   margin-bottom: 10px;
+  width: 20%;
 }
 
 mat-card-title {
