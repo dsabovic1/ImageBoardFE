@@ -6,9 +6,9 @@
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{ post.title }}</mat-card-title>
         </mat-card-header>
-        
+
         <br />
-      
+
         <div class="post-image">
           <img mat-card-image [src]="post.imagePath" [alt]="post.title">
         </div>
@@ -17,7 +17,7 @@
         </mat-card-content>
         <mat-card-actions>
           <div class="example-button-container">
-            <button mat-fab color="accent"><mat-icon>❤</mat-icon></button>
+            <button  [matBadge]="post.likesCount" matBadgePosition="before" matBadgeColor="primary" mat-fab [color]="post.liked.includes(5) ? 'accent' : 'disabled'" #tag (click)="onLike(post.id, 5, tag)"><mat-icon>favorite</mat-icon></button>
             <button
               mat-fab
               color="disabled"
@@ -39,6 +39,6 @@
     <div class="info">
      <p *ngIf="posts.length <= 0 && !isLoading">Please add some images</p>
     </div>
-    
+
     <!-- </mat-grid-tile>
     </mat-grid-list> -->
