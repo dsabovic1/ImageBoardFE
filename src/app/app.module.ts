@@ -20,6 +20,7 @@ import { EditComponent } from './posts/edit/edit.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     LoginPageComponent,
     SignupPageComponent,
     AboutUsComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

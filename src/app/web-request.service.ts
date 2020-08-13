@@ -42,13 +42,13 @@ export class WebRequestService {
     );
   }
 
-  signup(email: string, password: string) {
-    console.log(`${this.ROOT_URL}/api/users`);
+  signup(email: string, password: string, username: string) {
     return this.http.post(
       `${this.ROOT_URL}/api/users`,
       {
         email,
         password,
+        username,
       },
       {
         observe: 'response',
