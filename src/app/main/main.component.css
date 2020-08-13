@@ -1,3 +1,18 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+}
+
 ul {
   list-style: none;
   margin: 16px;
@@ -29,4 +44,61 @@ mat-icon {
 
 button {
   text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#logout_icon {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  mat-toolbar {
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    display: none;
+  }
+  
+  .mat-toolbar-row,
+  .mat-toolbar-single-row {
+    padding: auto;
+  }
+ 
+  ul {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  #add_photo {
+    order: 1;
+  }
+  #logout_icon {
+    display: inline;
+    order: 2;
+  }
+
+  #logout_text {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  mat-toolbar {
+    display: block;
+    height: auto;
+  }
+
+  #logout_text {
+    display: block;
+  }
+
+  #logout_icon {
+    display: none;
+  }
 }
