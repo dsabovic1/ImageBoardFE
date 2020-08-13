@@ -20,6 +20,7 @@ import { EditComponent } from './posts/edit/edit.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatProgressSpinnerModule,
     HttpClientModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

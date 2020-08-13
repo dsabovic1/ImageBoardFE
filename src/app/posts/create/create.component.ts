@@ -49,6 +49,7 @@ export class CreateComponent implements OnInit {
             content: postData.content,
             likesCount : postData.likesCount,
             liked : postData.liked,
+            comments : postData.comments,
             imagePath: null
             };
           this.form.setValue({'title': this.post.title,

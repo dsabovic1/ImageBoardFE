@@ -8,8 +8,13 @@ mat-spinner{
   margin: auto;
 }
 
-mat-card{ 
+mat-card{
   margin-bottom: 15px;
+}
+
+button:focus {
+  outline: none;
+  border: 0;
 }
 
 .example-card {
@@ -54,7 +59,7 @@ button {
   grid-template-columns: auto;
   align-items: center;
 }
- 
+
 example-card{
   max-width: 400px;
   text-align: center;

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { map} from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 
 @Injectable({providedIn: 'root'})
 export class PostsService{
@@ -22,6 +23,7 @@ export class PostsService{
           id: post._id,
           likesCount: post.likesCount,
           liked: post.liked,
+          comments : post.comments,
           imagePath: post.imagePath
         };
       });
@@ -34,6 +36,18 @@ export class PostsService{
 
   getPostUpdateListener(){
     return this.postsUpdated.asObservable();
+  }
+
+  addComment(newComment, postId, callbackF, ovo) : any {
+    const postData = {
+      postId : postId,
+      username : "tito1111",
+      text : newComment
+  };
+    return this.http.post(
+      'http://localhost:3000/api/posts/addComment', postData).subscribe((responseData : any) =>{
+      callbackF(responseData, ovo);
+    });
   }
 
   updatePost(id: string, title:string, content: string){
@@ -69,11 +83,12 @@ export class PostsService{
     .subscribe((responseData)=>{
       const post: Post = {
         id: responseData.post.id,
-        userId : "3",
+        userId : "5",
         title: title,
         content: content,
         likesCount : 0,
         liked : [],
+        comments : {comms : [], isCollapsed : true},
         imagePath: responseData.post.imagePath};
       this.posts.push(post);
       this.postsUpdated.next([...this.posts]);
@@ -82,7 +97,7 @@ export class PostsService{
 
   }
   getPost(id: string){
-    return this.http.get<{_id: string, userId: string, title: string, content: string, likesCount: Number, liked : []}>("http://localhost:3000/api/posts/" + id);
+    return this.http.get<{_id: string, userId: string, title: string, content: string, likesCount: Number, liked : [], comments: {comms: [], isCollapsed : boolean}}>("http://localhost:3000/api/posts/" + id);
   }
 
   deletePost(postId: string) {
