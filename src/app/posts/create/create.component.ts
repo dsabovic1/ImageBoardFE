@@ -29,7 +29,6 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      
       content: new FormControl(null, { validators: [Validators.required] }),
       image: new FormControl(null, {
         validators: [Validators.required],
@@ -49,6 +48,7 @@ export class CreateComponent implements OnInit {
             content: postData.content,
             likesCount: postData.likesCount,
             liked: postData.liked,
+            comments: postData.comments,
             imagePath: null,
           };
           this.form.setValue({
@@ -62,7 +62,6 @@ export class CreateComponent implements OnInit {
     });
   }
   enteredContent = '';
-  
 
   onSavePost() {
     if (this.form.invalid) {
@@ -71,15 +70,9 @@ export class CreateComponent implements OnInit {
 
     this.isLoading = true;
     if (this.mode === 'create') {
-      this.postsService.addPost(
-        this.form.value.content,
-        this.form.value.image
-      );
+      this.postsService.addPost(this.form.value.content, this.form.value.image);
     } else {
-      this.postsService.updatePost(
-        this.postId,
-        this.form.value.content
-      );
+      this.postsService.updatePost(this.postId, this.form.value.content);
     }
     this.form.reset();
   }

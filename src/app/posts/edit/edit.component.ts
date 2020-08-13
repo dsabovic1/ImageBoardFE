@@ -41,6 +41,7 @@ export class EditComponent implements OnInit {
             content: postData.content,
             likesCount: postData.likesCount,
             liked: postData.liked,
+            comments: postData.comments,
             imagePath: null,
           };
           this.form.setValue({
@@ -62,15 +63,9 @@ export class EditComponent implements OnInit {
 
     this.isLoading = true;
     if (this.mode === 'create') {
-      this.postsService.addPost(
-        this.form.value.content,
-        this.form.value.image
-      );
+      this.postsService.addPost(this.form.value.content, this.form.value.image);
     } else {
-      this.postsService.updatePost(
-        this.postId,
-        this.form.value.content
-      );
+      this.postsService.updatePost(this.postId, this.form.value.content);
     }
     this.form.reset();
   }

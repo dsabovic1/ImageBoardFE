@@ -1,15 +1,20 @@
-:host{
+:host {
   display: block;
   margin-top: 2rem;
   text-align: center;
 }
 
-mat-spinner{
+mat-spinner {
   margin: auto;
 }
 
-mat-card{ 
+mat-card {
   margin-bottom: 25px;
+}
+
+button:focus {
+  outline: none;
+  border: 0;
 }
 
 .example-card {
@@ -20,7 +25,7 @@ mat-card{
 }
 
 .example-header-image {
-  background-image: url('/assets/person.png');
+  background-image: url("/assets/person.png");
   background-size: cover;
 }
 
@@ -37,15 +42,13 @@ mat-card-title {
   white-space: nowrap;
 }
 
-
-
 .mat-card-header .mat-card-title {
   margin-bottom: 0;
 }
 
-.mat-card{
+.mat-card {
   width: 100%;
-  text-align:center;
+  text-align: center;
 }
 
 button {
@@ -58,13 +61,13 @@ button {
   grid-template-columns: auto;
   align-items: center;
 }
- 
-example-card{
+
+example-card {
   max-width: 400px;
   text-align: center;
   margin: auto;
 }
 
-.info{
+.info {
   text-align: center;
 }
