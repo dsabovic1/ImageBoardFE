@@ -15,6 +15,7 @@ mat-card {
 
 mat-card-title {
   width: max-content;
+  white-space: nowrap;
 }
 
 img {
