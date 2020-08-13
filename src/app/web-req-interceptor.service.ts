@@ -21,14 +21,14 @@ export class WebReqInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
     // Handle the request
-    console.log('Tusam');
     request = this.addAuthHeader(request);
 
     // call next() and handle the response
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         console.log(error);
-
+        if (error.status === 400) {
+        }
         if (error.status === 401) {
           // 401 error so we are unauthorized
 

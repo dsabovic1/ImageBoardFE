@@ -22,6 +22,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { WebReqInterceptorService } from './web-req-interceptor.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { WebReqInterceptorService } from './web-req-interceptor.service';
     HttpClientModule,
     MatIconModule,
     MatBadgeModule,
+    MatSnackBarModule,
   ],
   providers: [
     {

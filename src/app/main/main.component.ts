@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-main',
@@ -9,11 +10,13 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class MainComponent implements OnInit {
   isLoggedIn: boolean;
+  hasError: boolean;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private _snackBar: MatSnackBarModule
   ) {
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
@@ -21,6 +24,7 @@ export class MainComponent implements OnInit {
         console.log(this.isLoggedIn);
       }
     });
+    this.hasError = true;
   }
 
   ngOnInit(): void {
@@ -35,5 +39,9 @@ export class MainComponent implements OnInit {
 
   checkIfLoggedIn() {
     return this.authService.isLoggedIn();
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Something went wrong :(');
   }
 }
