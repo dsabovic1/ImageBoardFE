@@ -7,6 +7,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { AuthService } from './auth.service';
 
 const routes: Routes = [
   {
