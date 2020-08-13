@@ -1,16 +1,36 @@
 mat-card {
+  font: 500 16px/28px Roboto,
+  "Helvetica Neue",
+  sans-serif;
   max-width: 400px;
-  height: 400px;
   margin: 2em auto;
   text-align: center;
+  margin-top: 70px;
+  border-radius: 25px;
 }
 
 mat-form-field {
   display: block;
 }
 
+img {
+  height: 150px;
+  width: 150px;
+  border-radius: 25px;
+}
+
 .centered-content {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+a {
+  font-weight: 900;
+  text-decoration: none;
+  color: #000000;
+}
+
+#signup {
+  cursor: pointer;
 }

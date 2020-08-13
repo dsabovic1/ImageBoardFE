@@ -13,7 +13,13 @@ export class LoginPageComponent implements OnInit {
   form: FormGroup;
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    document.body.classList.add('background');
+  }
+
+  ngOnDestroy() {
+    document.body.className = "";
+  }
 
   onLoginButtonClicked(email: string, password: string) {
     console.log(email, password);
