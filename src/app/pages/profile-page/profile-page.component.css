@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+mat-card {
+  margin-bottom: 15px;
+}
+
+.example-card {
+  max-width: 400px;
+  display: block;
+  align-self: center;
+  position: center;
+}
+
+.example-header-image {
+  background-image: url("/assets/person.png");
+  background-size: cover;
+}
+
+mat-card-header {
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+  width: 20%;
+}
+
+mat-card-title {
+  margin: 0 auto;
+}
+
+.mat-card-header .mat-card-title {
+  margin-bottom: 0;
+}
+
+.mat-card {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+}
+
+.grid {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: auto;
+  align-items: center;
+}
+
+example-card {
+  max-width: 400px;
+  text-align: center;
+  margin: auto;
+}
+
+.info {
+  text-align: center;
+}
