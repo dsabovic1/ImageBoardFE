@@ -1,33 +1,33 @@
 mat-form-field,
-textarea{
+textarea {
   width: 100%;
 }
 
-mat-spinner{
-  margin:auto;
+mat-spinner {
+  margin: auto;
 }
 
-input[type="file"]{
+input[type="file"] {
   visibility: hidden;
 }
 
-.image-preview{
+.image-preview {
   height: 10rem;
   margin: 2rem 0;
 }
 
-.image-preview img{
+.image-preview img {
   height: 100%;
 }
 
-mat-card{
+mat-card {
   width: 30%;
   display: block;
-  text-align:center;
+  text-align: center;
   margin: auto;
 }
 
-main-div{
+main-div {
   justify-content: center;
   align-items: center;
 }

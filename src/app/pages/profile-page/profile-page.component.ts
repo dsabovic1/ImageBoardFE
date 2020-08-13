@@ -30,7 +30,7 @@ export class ProfilePageComponent implements OnInit {
     this.postsSub = this.postsService
       .getPostUpdateListener()
       .subscribe((posts: Post[]) => {
-        this.posts = posts.reverse();
+        this.posts = posts;
         this.isLoading = false;
       });
   }
