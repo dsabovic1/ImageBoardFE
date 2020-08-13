@@ -1,11 +1,12 @@
 .container {
   display: flex;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 .example-card {
   max-width: 300px;
   margin: 0 10px;
+  border-radius: 10px;
 }
 mat-card {
   padding: 16px 16px 0 16px;
