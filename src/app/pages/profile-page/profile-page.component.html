@@ -20,8 +20,16 @@
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-container">
-        <button mat-fab color="accent">
-          <mat-icon>❤</mat-icon>
+        <button
+          [matBadge]="post.likesCount"
+          matBadgePosition="before"
+          matBadgeColor="primary"
+          mat-fab
+          [color]="post.liked.includes(5) ? 'accent' : 'disabled'"
+          #tag
+          (click)="onLike(post.id, 5, tag)"
+        >
+          <mat-icon>favorite</mat-icon>
         </button>
         <button
           mat-fab
