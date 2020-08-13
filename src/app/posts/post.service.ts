@@ -56,7 +56,6 @@ export class PostsService {
           console.log(postData);
           return postData.posts.map((post) => {
             return {
-              title: post.title,
               userId: post.userId,
               content: post.content,
               id: post._id,
@@ -77,10 +76,9 @@ export class PostsService {
     return this.postsUpdated.asObservable();
   }
 
-  updatePost(id: string, title: string, content: string) {
+  updatePost(id: string,  content: string) {
     const post = {
       id: id,
-      title: title,
       content: content,
       imagePath: null,
     };
@@ -89,7 +87,7 @@ export class PostsService {
       .subscribe((response) => {
         const updatedPosts = [...this.posts];
         const oldPostIndex = updatedPosts.findIndex((p) => p.id === post.id);
-        updatedPosts[oldPostIndex].title = post.title;
+       
         updatedPosts[oldPostIndex].content = post.content;
         this.posts = updatedPosts;
         this.postsUpdated.next([...this.posts]);
@@ -97,11 +95,11 @@ export class PostsService {
       });
   }
 
-  addPost(title: string, content: string, image: File) {
+  addPost( content: string, image: File) {
     const postData = new FormData();
-    postData.append('title', title);
+    
     postData.append('content', content);
-    postData.append('image', image, title);
+    postData.append('image', image, );
     postData.append('_userId', this.authService.getUserId());
 
     this.http
@@ -113,7 +111,6 @@ export class PostsService {
         const post: Post = {
           id: responseData.post.id,
           userId: '3',
-          title: title,
           content: content,
           likesCount: 0,
           liked: [],

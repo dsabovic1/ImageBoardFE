@@ -2,17 +2,7 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        formControlName="title"
-        placeholder="Post Title"
-      />
-      <mat-error *ngIf="form.get('title').invalid"
-        >Please add a post title</mat-error
-      >
-    </mat-form-field>
+    
 
     <div>
       <div class="example-button-container">

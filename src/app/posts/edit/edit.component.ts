@@ -38,7 +38,6 @@ export class EditComponent implements OnInit {
           this.post = {
             id: postData._id,
             userId: postData.userId,
-            title: postData.title,
             content: postData.content,
             likesCount: postData.likesCount,
             liked: postData.liked,
@@ -55,7 +54,6 @@ export class EditComponent implements OnInit {
     });
   }
   enteredContent = '';
-  enteredTitle = '';
 
   onSavePost() {
     if (this.form.invalid) {
@@ -65,14 +63,12 @@ export class EditComponent implements OnInit {
     this.isLoading = true;
     if (this.mode === 'create') {
       this.postsService.addPost(
-        this.form.value.title,
         this.form.value.content,
         this.form.value.image
       );
     } else {
       this.postsService.updatePost(
         this.postId,
-        this.form.value.title,
         this.form.value.content
       );
     }

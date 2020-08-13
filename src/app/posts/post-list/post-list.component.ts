@@ -18,6 +18,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   ) {}
   isLoading = false;
   isLoggedIn = this.authService.isLoggedIn();
+  username= this.authService.getUsername();
   posts: Post[] = [];
   private postsSub: Subscription;
   ngOnInit(): void {
