@@ -48,19 +48,39 @@ button {
   margin: 5px;
 }
 
-.grid {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: auto;
-  align-items: center;
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-example-card {
-  max-width: 400px;
-  text-align: center;
-  margin: auto;
+.example-card {
+  max-width: 250px;
+  border-radius: 10px;
+}
+
+mat-card {
+  margin-top: 20px;
+}
+
+mat-card-title {
+  width: max-content;
+  white-space: nowrap;
 }
 
 .info {
   text-align: center;
+}
+
+img {
+  max-width: 400px;
+  min-width: 200px;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+span {
+  color: #ff4081;
 }
