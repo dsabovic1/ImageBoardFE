@@ -1,5 +1,6 @@
 <mat-card class="centered-content">
   <mat-card-content>
+    <img src="assets/images/logo.jpg" alt="Logo Photo Board">
     <h2>Sign up</h2>
     <mat-form-field class="full-width-input">
       <input
@@ -24,15 +25,13 @@
     </mat-form-field>
     <button
       mat-raised-button
-      color="primary"
+      color="accent"
       (click)="onSignupButtonClicked(email.value, password.value)"
     >
       Signup
     </button>
-    <br /><br />
-    <p>
-      Already got an account?
-      <a mat-button routerLink="/login">Login</a> now!
-    </p>
+    <br>
+    <br>
+    <p>Already got an account?<a id="login" routerLink="/login"> Login</a> now!</p>
   </mat-card-content>
 </mat-card>
