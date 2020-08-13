@@ -6,10 +6,9 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  styleUrls: ['./post-list.component.css'],
 })
 export class PostListComponent implements OnInit, OnDestroy {
-
   constructor(public postsService: PostsService) {}
   isLoading = false;
   posts: Post[] = [];
@@ -17,31 +16,33 @@ export class PostListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //this.posts = this.postsService.getPosts();
 
-    this.isLoading=true;
+    this.isLoading = true;
     this.postsService.getPosts();
-    this.postsSub=this.postsService.getPostUpdateListener().subscribe((posts: Post[])=>{
-      this.posts=posts;
-      this.isLoading=false;
-    });
+    this.postsSub = this.postsService
+      .getPostUpdateListener()
+      .subscribe((posts: Post[]) => {
+        this.posts = posts;
+        this.isLoading = false;
+      });
   }
-  onDelete(postId: string){
+  onDelete(postId: string) {
     this.postsService.deletePost(postId);
   }
 
-  onLike(postId, userId, tag : HTMLButtonElement) {
+  onLike(postId, userId, tag: HTMLButtonElement) {
     this.postsService.onLike(postId, userId, this.callbackF, this);
   }
 
   callbackF(responseData: any, ovo) {
-    for(let i = 0; i < ovo.posts.length; i++) {
-      if(ovo.posts[i].id === responseData.postId) {
-        if(ovo.posts[i].likesCount < responseData.newLikeCount) {
-          console.log("usao");
-          ovo.posts[i].liked.push(5)
+    for (let i = 0; i < ovo.posts.length; i++) {
+      if (ovo.posts[i].id === responseData.postId) {
+        if (ovo.posts[i].likesCount < responseData.newLikeCount) {
+          console.log('usao');
+          ovo.posts[i].liked.push(5);
         } else {
           const index = ovo.posts[i].liked.indexOf(5);
           if (index > -1) {
-          ovo.posts[i].liked.splice(index, 1)
+            ovo.posts[i].liked.splice(index, 1);
           }
         }
         ovo.posts[i].likesCount = responseData.newLikeCount;
@@ -50,8 +51,7 @@ export class PostListComponent implements OnInit, OnDestroy {
     console.log(ovo.posts);
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.postsSub.unsubscribe();
   }
-
 }

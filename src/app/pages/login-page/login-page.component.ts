@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -11,9 +16,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
   form: FormGroup;
-  constructor(private authService: AuthService, private router: Router) {}
+  email = new FormControl('', Validators.required);
 
-  ngOnInit() {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private _fb: FormBuilder
+  ) {
+    this.form = _fb.group({
+      email: this.email,
+      password: ['', Validators.required],
+    });
+  }
+
+  ngOnInit() {
+    this.form = this._fb.group({
+      username: '',
+      password: '',
+    });
+  }
 
   onLoginButtonClicked(email: string, password: string) {
     console.log(email, password);

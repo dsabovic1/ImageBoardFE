@@ -1,9 +1,9 @@
-export interface Post{
+export interface Post {
   id: string;
-  userId : string,
+  _userId: string;
   title: string;
   content: string;
-  likesCount : Number,
-  liked : [],
+  likesCount: Number;
+  liked: [];
   imagePath: string;
 }
