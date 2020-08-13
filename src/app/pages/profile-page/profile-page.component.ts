@@ -3,6 +3,7 @@ import { Post } from '../../posts/post.model';
 import { PostsService } from '../../posts/post.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./profile-page.component.css'],
 })
 export class ProfilePageComponent implements OnInit {
+  isLoggedIn = this.authService.isLoggedIn();
   isLoading = false;
   posts: Post[] = [];
   username = this.authService.getUsername();
@@ -17,7 +19,8 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(
     private postsService: PostsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +36,9 @@ export class ProfilePageComponent implements OnInit {
 
   onDelete(postId: string) {
     this.postsService.deletePost(postId);
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }

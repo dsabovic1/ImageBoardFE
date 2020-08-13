@@ -3,6 +3,7 @@ import { Post } from '../post.model';
 import { PostsService } from '../post.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -10,8 +11,13 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./post-list.component.css'],
 })
 export class PostListComponent implements OnInit, OnDestroy {
-  constructor(public postsService: PostsService) {}
+  constructor(
+    public postsService: PostsService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
   isLoading = false;
+  isLoggedIn = this.authService.isLoggedIn();
   posts: Post[] = [];
   private postsSub: Subscription;
   ngOnInit(): void {
@@ -52,5 +58,9 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.postsSub.unsubscribe();
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }
