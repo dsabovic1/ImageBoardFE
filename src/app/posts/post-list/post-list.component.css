@@ -9,7 +9,18 @@ mat-spinner {
 }
 
 mat-card {
-  margin-bottom: 25px;
+  margin: 25px;
+}
+
+.comments {
+  margin: 15px, 0px;
+  padding: 0px;
+}
+
+.comment-card {
+  margin: 5px;
+  padding: 0px;
+  background-color: #fff5f8;
 }
 
 button:focus {

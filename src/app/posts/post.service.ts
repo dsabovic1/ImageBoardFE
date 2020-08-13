@@ -30,7 +30,6 @@ export class PostsService {
       )
       .pipe(
         map((postData) => {
-          console.log(postData);
           return postData.posts.map((post) => {
             console.log(post);
             return {
@@ -40,15 +39,14 @@ export class PostsService {
               id: post._id,
               likesCount: post.likesCount,
               liked: post.liked,
-              comments: {comms: post.comments, isCollapsed : true},
+              comments: { comms: post.comments, isCollapsed: true },
               imagePath: post.imagePath,
             };
           });
         })
       )
       .subscribe((transformedPosts) => {
-        console.log(transformedPosts);
-        this.posts = transformedPosts;
+        this.posts = transformedPosts.reverse();
         this.postsUpdated.next([...this.posts]);
       });
   }
@@ -80,15 +78,14 @@ export class PostsService {
               id: post._id,
               likesCount: post.likesCount,
               liked: post.liked,
-              comments: { comms : post.comments, isCollapsed : true },
+              comments: { comms: post.comments, isCollapsed: true },
               imagePath: post.imagePath,
             };
           });
         })
       )
       .subscribe((transformedPosts) => {
-        console.log(transformedPosts);
-        this.posts = transformedPosts;
+        this.posts = transformedPosts.reverse();
         this.postsUpdated.next([...this.posts]);
       });
   }
@@ -120,7 +117,7 @@ export class PostsService {
     const postData = new FormData();
 
     postData.append('content', content);
-    postData.append("username", this.authService.getUsername());
+    postData.append('username', this.authService.getUsername());
     postData.append('image', image);
     postData.append('_userId', this.authService.getUserId());
 
@@ -133,7 +130,7 @@ export class PostsService {
         const post: Post = {
           id: responseData.post.id,
           userId: this.authService.getUserId(),
-          username : this.authService.getUsername(),
+          username: this.authService.getUsername(),
           content: content,
           likesCount: 0,
           liked: [],
@@ -150,7 +147,7 @@ export class PostsService {
     return this.http.get<{
       _id: string;
       userId: string;
-      username : string;
+      username: string;
       title: string;
       content: string;
       likesCount: Number;
