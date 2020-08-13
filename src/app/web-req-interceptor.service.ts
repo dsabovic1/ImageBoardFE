@@ -21,6 +21,7 @@ export class WebReqInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
     // Handle the request
+    console.log('Tusam');
     request = this.addAuthHeader(request);
 
     // call next() and handle the response
