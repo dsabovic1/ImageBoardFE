@@ -19,6 +19,7 @@ button:focus {
 
 .example-card {
   max-width: 400px;
+  min-width: 310px;
   display: block;
   align-self: center;
   position: center;
@@ -88,4 +89,24 @@ img {
 
 span {
   color: #ff4081;
+}
+
+#user_icon {
+  background-image: url(/assets/person.png);
+  background-size: cover;
+}
+
+#cent {
+  width: 100%;
+  justify-content: center;
+  color: #ff4081;
+}
+
+#bigger_text {
+  font-size: 30px;
+}
+
+#bigger_icon {
+  height: 60px;
+  width: 60px;
 }
