@@ -1,6 +1,6 @@
 <mat-card class="centered-content">
   <mat-card-content>
-    <img src="assets/images/logo.jpg" alt="Logo Photo Board">
+    <img src="assets/images/logo.jpg" alt="Logo Photo Board" />
     <h2>Sign up</h2>
     <mat-form-field class="full-width-input">
       <input
@@ -11,6 +11,16 @@
         required
       />
       <mat-error>Please provide a valid email address </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input
+        #username
+        matInput
+        placeholder="Username"
+        formControlName="username"
+        required
+      />
+      <mat-error>Please provide a valid username </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width-input">
       <input
@@ -26,12 +36,16 @@
     <button
       mat-raised-button
       color="accent"
-      (click)="onSignupButtonClicked(email.value, password.value)"
+      (click)="
+        onSignupButtonClicked(email.value, password.value, username.value)
+      "
     >
       Signup
     </button>
-    <br>
-    <br>
-    <p>Already got an account?<a id="login" routerLink="/login"> Login</a> now!</p>
+    <br />
+    <br />
+    <p>
+      Already got an account?<a id="login" routerLink="/login"> Login</a> now!
+    </p>
   </mat-card-content>
 </mat-card>

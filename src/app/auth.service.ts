@@ -21,6 +21,7 @@ export class AuthService {
         // the auth tokens will be in the header of this response
         this.setSession(
           res.body._id,
+          res.body.username,
           res.headers.get('x-access-token'),
           res.headers.get('x-refresh-token')
         );
@@ -29,14 +30,15 @@ export class AuthService {
     );
   }
 
-  signup(email: string, password: string) {
-    return this.webService.signup(email, password).pipe(
+  signup(email: string, password: string, username: string) {
+    return this.webService.signup(email, password, username).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {
         console.log(res);
         // the auth tokens will be in the header of this response
         this.setSession(
           res.body._id,
+          res.body.username,
           res.headers.get('x-access-token'),
           res.headers.get('x-refresh-token')
         );
@@ -46,9 +48,7 @@ export class AuthService {
   }
 
   logout() {
-    console.log('By');
     this.removeSession();
-
     this.router.navigate(['/login']);
   }
 
@@ -64,22 +64,29 @@ export class AuthService {
     return localStorage.getItem('user-id');
   }
 
+  getUsername() {
+    return localStorage.getItem('username');
+  }
+
   setAccessToken(accessToken: string) {
     localStorage.setItem('x-access-token', accessToken);
   }
 
   private setSession(
     userId: string,
+    username: string,
     accessToken: string,
     refreshToken: string
   ) {
     localStorage.setItem('user-id', userId);
+    localStorage.setItem('username', username);
     localStorage.setItem('x-access-token', accessToken);
     localStorage.setItem('x-refresh-token', refreshToken);
   }
 
   private removeSession() {
     localStorage.removeItem('user-id');
+    localStorage.removeItem('username');
     localStorage.removeItem('x-access-token');
     localStorage.removeItem('x-refresh-token');
   }

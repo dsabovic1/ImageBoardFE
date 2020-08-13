@@ -1,40 +1,47 @@
-<mat-toolbar color="accent" *ngIf="isLoggedIn">
-  <span>
-    <a routerLink="/"><mat-icon>camera</mat-icon> Photo Board</a>
-  </span>
-  <span class="spacer"></span>
-  <ul>
-    <li>
-      <a routerLink="/">Home</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <a routerLink="/">Profile</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <a routerLink="/about-us">About Us</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <a (click)="onLogout()" >Logout</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      <div class="example-button-container">
+<div class="container">
+  <mat-toolbar color="accent" *ngIf="isLoggedIn">
+    <span>
+      <a routerLink="/"><mat-icon>camera</mat-icon> Photo Board</a>
+    </span>
+    <span class="spacer"></span>
+    <ul>
+      <li>
+        <a routerLink="/">Home</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a routerLink="/profile">Profile</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a routerLink="/about-us">About Us</a>
+      </li>
+    </ul>
+    <ul id="logout_text">
+      <li>
+        <a class="pointer" (click)="onLogout()">Logout</a>
+      </li>
+    </ul>
+    <ul id="logout_icon">
+      <li>
         <button
           mat-mini-fab
           color="accent"
-          routerLink="/create"
-          aria-label="Example icon button with a plus one icon"
-        >
-          <mat-icon>add_a_photo</mat-icon>
-        </button>
-      </div>
-    </li>
-  </ul>
-</mat-toolbar>
+          >
+          <a class="pointer" (click)="onLogout()"><mat-icon>logout</mat-icon></a>
+        </button> 
+      </li>
+    </ul>
+    <ul id="add_photo">
+      <button
+            mat-mini-fab
+            color="accent"
+            routerLink="/create"
+          >
+        <mat-icon>add_a_photo</mat-icon>
+      </button>
+    </ul>
+  </mat-toolbar>
+</div>

@@ -9,7 +9,7 @@ mat-spinner{
 }
 
 mat-card{ 
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .example-card {
@@ -33,7 +33,11 @@ mat-card-header {
 
 mat-card-title {
   margin: 0 auto;
+  width: max-content;
+  white-space: nowrap;
 }
+
+
 
 .mat-card-header .mat-card-title {
   margin-bottom: 0;

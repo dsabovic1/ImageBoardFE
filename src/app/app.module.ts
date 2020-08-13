@@ -13,13 +13,16 @@ import { CreateComponent } from './posts/create/create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { EditComponent } from './posts/edit/edit.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { WebReqInterceptorService } from './web-req-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +34,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     LoginPageComponent,
     SignupPageComponent,
     AboutUsComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +49,15 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatProgressSpinnerModule,
     HttpClientModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: WebReqInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -16,12 +16,12 @@ export class SignupPageComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    document.body.className = "";
+    document.body.className = '';
   }
 
-  onSignupButtonClicked(email: string, password: string) {
+  onSignupButtonClicked(email: string, password: string, username: string) {
     this.authService
-      .signup(email, password)
+      .signup(email, password, username)
       .subscribe((res: HttpResponse<any>) => {
         console.log(res);
         this.router.navigate(['/']);
