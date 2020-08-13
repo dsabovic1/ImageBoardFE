@@ -22,6 +22,8 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { WebReqInterceptorService } from './web-req-interceptor.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { WebReqInterceptorService } from './web-req-interceptor.service';
     HttpClientModule,
     MatIconModule,
     MatBadgeModule,
+    NgbModule,
   ],
   providers: [
     {

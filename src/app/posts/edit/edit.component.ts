@@ -38,6 +38,7 @@ export class EditComponent implements OnInit {
           this.post = {
             id: postData._id,
             userId: postData.userId,
+            username: postData.username,
             content: postData.content,
             likesCount: postData.likesCount,
             liked: postData.liked,

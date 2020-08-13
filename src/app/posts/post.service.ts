@@ -19,6 +19,9 @@ export class PostsService {
     private authService: AuthService
   ) {}
 
+  public username = this.authService.getUsername();
+  public userId = this.authService.getUserId();
+
   getPostsFromUser(id: string) {
     console.log('http://localhost:3000/api/posts/user/' + id);
     this.http
@@ -31,13 +34,13 @@ export class PostsService {
           return postData.posts.map((post) => {
             console.log(post);
             return {
-              title: post.title,
               _userId: post._userId,
               content: post.content,
+              username: post.username,
               id: post._id,
               likesCount: post.likesCount,
               liked: post.liked,
-              comments: post.comments,
+              comments: {comms: post.comments, isCollapsed : true},
               imagePath: post.imagePath,
             };
           });
@@ -53,7 +56,7 @@ export class PostsService {
   addComment(newComment, postId, callbackF, ovo): any {
     const postData = {
       postId: postId,
-      username: 'tito1111',
+      username: this.authService.getUsername(),
       text: newComment,
     };
     return this.http
@@ -68,20 +71,23 @@ export class PostsService {
       .get<{ message: string; posts: any }>('http://localhost:3000/api/posts')
       .pipe(
         map((postData) => {
-          console.log(postData);
           return postData.posts.map((post) => {
+            console.log(post.comments);
             return {
-              userId: post.userId,
+              userId: post._userId,
               content: post.content,
+              username: post.username,
               id: post._id,
               likesCount: post.likesCount,
               liked: post.liked,
+              comments: { comms : post.comments, isCollapsed : true },
               imagePath: post.imagePath,
             };
           });
         })
       )
       .subscribe((transformedPosts) => {
+        console.log(transformedPosts);
         this.posts = transformedPosts;
         this.postsUpdated.next([...this.posts]);
       });
@@ -114,6 +120,7 @@ export class PostsService {
     const postData = new FormData();
 
     postData.append('content', content);
+    postData.append("username", this.authService.getUsername());
     postData.append('image', image);
     postData.append('_userId', this.authService.getUserId());
 
@@ -125,7 +132,8 @@ export class PostsService {
       .subscribe((responseData) => {
         const post: Post = {
           id: responseData.post.id,
-          userId: '5',
+          userId: this.authService.getUserId(),
+          username : this.authService.getUsername(),
           content: content,
           likesCount: 0,
           liked: [],
@@ -137,10 +145,12 @@ export class PostsService {
         this.router.navigate(['/']);
       });
   }
+
   getPost(id: string) {
     return this.http.get<{
       _id: string;
       userId: string;
+      username : string;
       title: string;
       content: string;
       likesCount: Number;
