@@ -1,6 +1,9 @@
 <div *ngIf="!isLoggedIn ? goToLogin() : false"></div>
-<h1>Welcome to your profile page <span>{{ username }}</span>!</h1>
-<div class="info">
+<mat-card-header id="cent">
+      <div mat-card-avatar id="bigger_icon" class="example-header-image"></div>
+
+      <mat-card-title id="bigger_text">{{ username }}</mat-card-title>
+    </mat-card-header><div class="info">
   <p *ngIf="posts.length <= 0">Please add some images</p>
 </div>
 <div class="container">
