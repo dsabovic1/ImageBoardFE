@@ -11,6 +11,11 @@ html {
 .container {
   width: 100%;
   display: flex;
+  margin: 0;
+}
+
+mat-toolbar {
+  margin: 0;
 }
 
 ul {
@@ -63,12 +68,12 @@ button {
   span {
     display: none;
   }
-  
+
   .mat-toolbar-row,
   .mat-toolbar-single-row {
     padding: auto;
   }
- 
+
   ul {
     margin: 10px;
   }
