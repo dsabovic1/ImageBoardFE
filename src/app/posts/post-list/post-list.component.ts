@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Post } from '../post.model';
+import { Comment } from '../comment.model';
 import { PostsService } from '../post.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
@@ -18,7 +19,8 @@ export class PostListComponent implements OnInit, OnDestroy {
   ) {}
   isLoading = false;
   isLoggedIn = this.authService.isLoggedIn();
-  username= this.authService.getUsername();
+  username = this.authService.getUsername();
+  public userId = this.authService.getUserId();
   posts: Post[] = [];
   private postsSub: Subscription;
   ngOnInit(): void {
@@ -35,18 +37,44 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.postsService.deletePost(postId);
   }
 
-  onLike(postId, userId, tag: HTMLButtonElement) {
+  onLike(postId, userId) {
     this.postsService.onLike(postId, userId, this.callbackF, this);
+  }
+
+  myFunc(newComment: HTMLInputElement, postId) {
+    if (newComment.value == '') return;
+    console.log(this.posts);
+    this.postsService.addComment(
+      newComment.value,
+      postId,
+      this.callbackF2,
+      this
+    );
+    newComment.value = '';
+  }
+
+  callbackF2(json: any, ovo) {
+    console.log(json);
+    for (let i = 0; i < ovo.posts.length; i++) {
+      if (ovo.posts[i].id === json.postId) {
+        let com: Comment = {
+          id: json.postId,
+          username: json.username,
+          text: json.text,
+        };
+        //console.log( ovo.posts[i].comments);
+        ovo.posts[i].comments.comms.push(com);
+      }
+    }
   }
 
   callbackF(responseData: any, ovo) {
     for (let i = 0; i < ovo.posts.length; i++) {
       if (ovo.posts[i].id === responseData.postId) {
         if (ovo.posts[i].likesCount < responseData.newLikeCount) {
-          console.log('usao');
-          ovo.posts[i].liked.push(5);
+          ovo.posts[i].liked.push(ovo.userId);
         } else {
-          const index = ovo.posts[i].liked.indexOf(5);
+          const index = ovo.posts[i].liked.indexOf(ovo.userId);
           if (index > -1) {
             ovo.posts[i].liked.splice(index, 1);
           }

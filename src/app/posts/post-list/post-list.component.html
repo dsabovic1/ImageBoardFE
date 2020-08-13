@@ -4,13 +4,13 @@
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
 
-      <mat-card-title>{{ username }}</mat-card-title>
+      <mat-card-title>{{ post.username }}</mat-card-title>
     </mat-card-header>
 
     <br />
 
     <div class="post-image">
-      <img mat-card-image [src]="post.imagePath" [alt]="post.title" />
+      <img mat-card-image [src]="post.imagePath" [alt]="username" />
     </div>
     <mat-card-content>
       {{ post.content }}
@@ -22,12 +22,62 @@
           matBadgePosition="before"
           matBadgeColor="primary"
           mat-fab
-          [color]="post.liked.includes(5) ? 'accent' : 'disabled'"
-          #tag
-          (click)="onLike(post.id, 5, tag)"
+          [color]="post.liked.includes(userId) ? 'accent' : 'disabled'"
+          (click)="onLike(post.id, userId)"
         >
           <mat-icon>favorite</mat-icon>
         </button>
+        <button
+          type="button"
+          class="btn btn-outline-accent"
+          (click)="
+            post.comments.isCollapsed = !post.comments.isCollapsed
+          "
+          [attr.aria-expanded]="
+            !post.comments.isCollapsed
+          "
+          aria-controls="collapseExample"
+          mat-fab
+          color="disabled"
+          aria-label="Example icon button with a bookmark icon"
+        >
+          <mat-icon>comment</mat-icon>
+        </button>
+        <div id="collapseExample" [ngbCollapse]="post.comments.isCollapsed">
+          <div class="card">
+            <div class="card-body">
+              <input
+                matInput
+                type="text"
+                placeholder="Post Comment"
+                #commentInput
+              />
+              <button
+                mat-fab
+                color="primary"
+                (click)="myFunc(commentInput, post.id)"
+                aria-label="Example icon button with a home icon"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+              <div class="grid">
+                <mat-card
+                  class="example-card"
+                  *ngFor="let x of post.comments.comms"
+                >
+                  <mat-card-header>
+                    <mat-card-title>{{ x.username }}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>
+                      {{ x.text }}
+                    </p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </mat-card-actions>
   </mat-card>
@@ -35,6 +85,3 @@
 <div class="info">
   <p *ngIf="posts.length <= 0 && !isLoading">Please add some images</p>
 </div>
-
-<!-- </mat-grid-tile>
-    </mat-grid-list> -->

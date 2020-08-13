@@ -14,7 +14,7 @@
     <br />
 
     <div class="post-image">
-      <img mat-card-image [src]="post.imagePath" [alt]="post.title" />
+      <img mat-card-image [src]="post.imagePath" [alt]="username" />
     </div>
     <mat-card-content>
       {{ post.content }}
@@ -26,9 +26,9 @@
           matBadgePosition="before"
           matBadgeColor="primary"
           mat-fab
-          [color]="post.liked.includes(5) ? 'accent' : 'disabled'"
+          [color]="post.liked.includes(userId) ? 'accent' : 'disabled'"
           #tag
-          (click)="onLike(post.id, 5, tag)"
+          (click)="onLike(post.id, userId)"
         >
           <mat-icon>favorite</mat-icon>
         </button>
