@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/auth.service';
 export class ProfilePageComponent implements OnInit {
   isLoading = false;
   posts: Post[] = [];
+  username = this.authService.getUsername();
   private postsSub: Subscription;
 
   constructor(
@@ -25,7 +26,7 @@ export class ProfilePageComponent implements OnInit {
     this.postsSub = this.postsService
       .getPostUpdateListener()
       .subscribe((posts: Post[]) => {
-        this.posts = posts;
+        this.posts = posts.reverse();
         this.isLoading = false;
       });
   }
