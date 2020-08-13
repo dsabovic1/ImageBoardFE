@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(255, 255, 255); }
+.background {
+  background: linear-gradient(to right top, #ff51a8, #ff8d70);
+  height: auto;
+}

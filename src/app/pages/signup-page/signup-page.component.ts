@@ -11,7 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SignupPageComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    document.body.classList.add('background');
+  }
+
+  ngOnDestroy() {
+    document.body.className = "";
+  }
 
   onSignupButtonClicked(email: string, password: string) {
     this.authService
