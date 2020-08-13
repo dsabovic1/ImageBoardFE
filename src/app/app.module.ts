@@ -22,7 +22,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { WebReqInterceptorService } from './web-req-interceptor.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -32,7 +32,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainComponent,
     PostListComponent,
     EditComponent,
-
     LoginPageComponent,
     SignupPageComponent,
     AboutUsComponent,
@@ -52,7 +51,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     MatIconModule,
     MatBadgeModule,
-    NgbModule,
+   
   ],
   providers: [
     {

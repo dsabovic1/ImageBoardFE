@@ -19,6 +19,7 @@ button:focus {
 
 .example-card {
   max-width: 400px;
+  min-width: 310px;
   display: block;
   align-self: center;
   position: center;
