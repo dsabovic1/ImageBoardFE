@@ -4,7 +4,7 @@
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
 
-      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-title>{{ username }}</mat-card-title>
     </mat-card-header>
 
     <br />
@@ -30,8 +30,14 @@
         <button
           type="button"
           class="btn btn-outline-accent"
-          (click)="post.comments.isCollapsed = !post.comments.isCollapsed"
-          [attr.aria-expanded]="!post.comments.isCollapsed"
+          (click)="
+            post.comments
+              ? (post.comments.isCollapsed = !post.comments.isCollapsed)
+              : true
+          "
+          [attr.aria-expanded]="
+            post.comments ? !post.comments.isCollapsed : false
+          "
           aria-controls="collapseExample"
           mat-fab
           color="disabled"
