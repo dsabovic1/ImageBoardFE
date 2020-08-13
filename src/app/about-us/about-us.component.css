@@ -1,20 +1,16 @@
-::ng-deep body {
-  background: #ffffff;
-  overflow: auto;
-}
-
 .container {
+  width: 100%;
   display: flex;
-  padding-top: 80px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .example-card {
-  max-width: 300px;
-  margin: 0 10px;
+  max-width: 210px;
   border-radius: 10px;
 }
 mat-card {
-  padding: 16px 16px 0 16px;
+  margin-top: 20px;
 }
 
 mat-card-title {
@@ -61,17 +57,20 @@ hr {
 }
 
 .created {
-  width: 60%;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   margin: auto;
-
   font: 500 20px/30px Roboto,
     "Helvetica Neue",
     sans-serif;
   text-align: center;
   letter-spacing: normal;
-  padding-top: 50px;
-  
-  
+  padding-top: 5px;
+}
+
+p {
+  width: 100%;
 }
 
 a {
