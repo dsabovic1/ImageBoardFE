@@ -6,6 +6,7 @@ import { EditComponent } from './posts/edit/edit.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   {
@@ -17,13 +18,18 @@ const routes: Routes = [
     component: CreateComponent,
   },
   {
-    path: 'edit/:postId', component: EditComponent
+    path: 'profile',
+    component: ProfilePageComponent,
   },
-{
+  {
+    path: 'edit/:postId',
+    component: EditComponent,
+  },
+  {
     path: 'about-us',
     component: AboutUsComponent,
   },
- 
+
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupPageComponent },
 ];

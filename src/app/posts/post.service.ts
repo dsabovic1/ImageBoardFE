@@ -19,14 +19,16 @@ export class PostsService {
   ) {}
 
   getPostsFromUser(id: string) {
-    console.log('tu');
+    console.log('http://localhost:3000/api/posts/user/' + id);
     this.http
       .get<{ message: string; posts: any }>(
-        'http://localhost:3000/api/posts/user' + id
+        'http://localhost:3000/api/posts/user/' + id
       )
       .pipe(
         map((postData) => {
+          console.log(postData);
           return postData.posts.map((post) => {
+            console.log(post);
             return {
               title: post.title,
               _userId: post._userId,
@@ -51,6 +53,7 @@ export class PostsService {
       .get<{ message: string; posts: any }>('http://localhost:3000/api/posts')
       .pipe(
         map((postData) => {
+          console.log(postData);
           return postData.posts.map((post) => {
             return {
               title: post.title,
