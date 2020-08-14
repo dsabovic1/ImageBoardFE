@@ -42,14 +42,16 @@
 
         <div class="comments">
           <div *ngIf="!post.comments.isCollapsed" class="comments">
+            <mat-form-field>
             <input
               matInput
               type="text"
               placeholder="Post Comment"
               #commentInput
             />
+          </mat-form-field>
             <button
-              mat-fab
+            mat-mini-fab
               color="primary"
               (click)="myFunc(commentInput, post.id)"
               aria-label="Example icon button with a home icon"
@@ -62,15 +64,16 @@
                 *ngFor="let x of post.comments.comms"
               >
                 <mat-card-header style="margin-bottom: 5px;">
-                  <mat-card-title style="color: #ff4081; font-size: 18px;">{{
+                  <mat-card-title style="color: #000000; font-size: 18px;">{{
                     x.username
-                  }}</mat-card-title>
+                  }}:</mat-card-title>
+                  <mat-card-content>
+                    <p id="neki">
+                      {{ x.text }}
+                    </p>
+                  </mat-card-content>
                 </mat-card-header>
-                <mat-card-content>
-                  <p>
-                    {{ x.text }}
-                  </p>
-                </mat-card-content>
+               
               </mat-card>
             </div>
           </div>

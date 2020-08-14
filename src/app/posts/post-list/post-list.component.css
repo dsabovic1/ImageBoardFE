@@ -83,3 +83,13 @@ example-card {
 .info {
   text-align: center;
 }
+
+
+
+#neki{
+  white-space: nowrap;
+  vertical-align: middle;
+  margin-top: 17px;
+
+
+}
