@@ -17,3 +17,4 @@ npm start
 - [Šabović Dženana](https://github.com/dsabovic1), 
 - [Anida Mujezin](https://github.com/anida21),
 - [Eldar Čelik](https://github.com/eldarcelik),
+- [Arslan Turkušić](https://github.com/aturkusic)
