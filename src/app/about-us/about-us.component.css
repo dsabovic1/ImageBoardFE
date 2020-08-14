@@ -3,14 +3,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  
 }
 
 .example-card {
-  max-width: 210px;
-  border-radius: 10px;
+  max-width: 260px;
+  border-radius: 30px;
+  
 }
 mat-card {
-  margin-top: 20px;
+  margin-top: 70px;
+  
 }
 
 mat-card-title {
@@ -20,7 +23,7 @@ mat-card-title {
 
 img {
   max-width: 400px;
-  min-width: 200px;
+  min-width: 260px;
   height: 350px;
 }
 
@@ -67,11 +70,12 @@ hr {
     sans-serif;
   text-align: center;
   letter-spacing: normal;
-  padding-top: 5px;
+  padding-top: 20px;
 }
 
 p {
   width: 100%;
+  padding-bottom: 30px;
 }
 
 a {
